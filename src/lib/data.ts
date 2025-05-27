@@ -4,7 +4,7 @@ export interface Playlist {
   id: string;
   albumId: number;
   title: string;
-  color: (typeof colours)[keyof typeof colours];
+  colour: (typeof colours)[keyof typeof colours];
   cover: string;
   artists: string[];
 }
@@ -14,7 +14,7 @@ export const playlists: Playlist[] = [
     id: "1",
     albumId: 1,
     title: "Poles Apart",
-    color: colours.moonlitNight,
+    colour: colours.moonlitNight,
     cover: "/covers/poles-apart.png",
     artists: ["Slowburn"],
   },
@@ -22,7 +22,7 @@ export const playlists: Playlist[] = [
     id: "2",
     albumId: 2,
     title: "Palette",
-    color: colours.mauveSunset,
+    colour: colours.mauveSunset,
     cover: "/covers/palette.png",
     artists: ["TIN", "Seeyouthere"],
   },
@@ -30,7 +30,7 @@ export const playlists: Playlist[] = [
     id: "3",
     albumId: 3,
     title: "The Realization",
-    color: colours.stormyTeal,
+    colour: colours.stormyTeal,
     cover: "/covers/the-realization.png",
     artists: ["Kinissue"],
   },
@@ -38,7 +38,7 @@ export const playlists: Playlist[] = [
     id: "4",
     albumId: 4,
     title: "The Legend of Orpheus",
-    color: colours.goldenBrown,
+    colour: colours.goldenBrown,
     cover: "/covers/orpheus.png",
     artists: ["Dimension 32"],
   },

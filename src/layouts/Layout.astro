@@ -23,8 +23,6 @@ const { title } = Astro.props;
       <main class="[grid-area:main] rounded-lg bg-zinc-900 overflow-y-auto w-full">
         <slot />
       </main>
-			<div class="[grid-area:album] rounded-lg bg-teal-700 overflow-y-auto">
-			</div>
       <footer class="[grid-area:player] h-[80px] rounded-lg bg-pink-800">
       </footer>
     </div>
@@ -36,7 +34,7 @@ const { title } = Astro.props;
 		display: grid;
     grid-template-areas:
     	"aside main"
-      "album player";
+      "player player";
     grid-template-columns: 350px 1fr;
     grid-template-rows: 1fr auto;
 		height: 100vh;

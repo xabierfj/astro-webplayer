@@ -1,10 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import AlbumItemCard from "@/layouts/AlbumItemCard.astro";
+import { playlists } from "@/lib/data"
 ---
 
-<Layout title='Home'>
-
+<Layout title="Home">
+  <div id="playlist-contaienr" class="relative transtition-all duration-1000">
+    <div class="relative z-10 px-6 pt-10">
+      <div class="flex flex-wrap mt-6 gap-4">
+        {playlists.map((playlist) => (
+          <AlbumItemCard playlist={playlist} />
+        ))}
+      </div>
+    </div>
+  </div>
 </Layout>

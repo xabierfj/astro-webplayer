@@ -1,0 +1,50 @@
+---
+import type { Playlist } from "@/lib/data";
+
+interface Props {
+  playlist: Playlist;
+}
+
+const { playlist } = Astro.props;
+const { id, cover, title, artists, colour } = playlist;
+
+const artistsString = artists.join(", ");
+
+console.log(`Rendering playlist item card for ${title} by ${artistsString}`);
+console.log(colour.dominant);
+
+---
+
+<article 
+  class="group relative hover:bg-zinc-800/30 shadow-lg hover:shadow-xl rounded-md transition-all duration-300 backdrop-blur-sm"
+  style={`background-color: ${colour.dominant}40`}
+>
+  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></div>
+  
+  <a href={`/album/${id}`} class="playlist-item relative z-10 flex p-2 overflow-hidden gap-2 pb-6 rounded-md w-44 flex-col">
+    <picture class="aspect-square w-full h-auto flex-none group-hover:scale-105 transition-transform duration-300">
+      <img
+        src={cover}
+        alt={`Cover of ${title} by ${artistsString}`}
+        class="object-cover w-full h-full rounded-md shadow-md"
+        loading="lazy"
+      />
+    </picture>
+
+    <div class="flex flex-auto flex-col px-2 relative z-10">
+      <h4 
+        class="text-white font-semibold text-sm truncate group-hover:text-zinc-100" 
+        transition:name=`playlist ${id} title`
+      >
+        {title}
+      </h4>
+
+      <span 
+        class="text-xs text-zinc-300/80 truncate group-hover:text-white/90" 
+        transition:name=`playlist ${id} artists`
+      >
+        {artistsString}
+      </span>
+    </div>
+  </a>
+</article>
